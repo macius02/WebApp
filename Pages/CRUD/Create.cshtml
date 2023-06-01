@@ -1,0 +1,98 @@
+﻿@page
+@model Projekt.CRUD.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="banner">
+    <h2 class="rounded text-center text-white p-3">Add Item</h2>
+</div>
+
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label text-white text-center banner">Name</label>
+        <div class="col-sm-6">
+            <input class="form-control text-center banner2" asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label text-white text-center banner">Price ($)</label>
+        <div class="col-sm-6">
+            <input class="form-control text-center banner2" asp-for="Price" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label text-white text-center banner">State</label>
+        <div class="col-sm-6">
+            <select class="form-select text-center banner2" asp-for="State">
+                <option value="New">
+                    New
+                </option>
+                <option value="Used">
+                    Used
+                </option>
+            </select>
+            <span asp-validation-for="State" class="text-danger"></span>
+        </div>
+    </div>
+
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label text-white text-center banner">Description</label>
+        <div class="col-sm-6">
+            <textarea class="form-control text-center banner2" asp-for="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label text-white text-center banner">Category</label>
+        <div class="col-sm-6">
+            <select class="form-select text-center banner2" asp-for="Category">
+                <option value="Books">
+                    Books
+                </option>
+                <option value="Bikes">
+                    Bikes
+                </option> 
+                <option value="Cars">
+                    Cars
+                </option>
+                <option value="Phones">
+                    Phones
+                </option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label text-white text-center banner">Image</label>
+        <div class="col-sm-6">
+            <input class="form-file text-center banner2" asp-for="ImageFile" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="offset-sm-3 col-sm-6">
+            <button type="submit" class="btn btn-primary banner" href="/Users/MyItems">Add Item</button>
+
+            <a asp-page="/CRUD/Index" class="btn btn-secondary banner">Go back</a>
+        </div>
+    </div>
+
+
+
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

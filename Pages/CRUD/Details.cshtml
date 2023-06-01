@@ -1,0 +1,105 @@
+﻿@page
+@model Projekt.CRUD.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="banner">
+    <h2 class="rounded text-center text-white p-3">Item Details</h2>
+</div>
+
+<div class="col-md-12">
+    <table class="table table-striped">
+        <tbody>
+                <tr>
+                    <td style="width:300px">
+                        <img src="data:image/jpg;base64,@Model.Item.ImageData" class="img-fluid banner2" alt="Item Image">
+                    </td>
+                    <td class="rounded">
+                    <div class="row mb-3 banner2">
+                        <div class="col-md-4">
+                            <strong>Name</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.Item.Name
+                        </div>
+                    </div>
+                    <div class="row mb-3 banner2">
+                        <div class="col-md-4">
+                            <strong>State</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.Item.State
+                        </div>
+                    </div>
+                    <div class="row mb-3 banner2">
+                        <div class="col-md-4">
+                            <strong>Category</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.Item.Category
+                        </div>
+                    </div>
+                    <div class="row mb-3 banner2">
+                        <div class="col-md-4">
+                            <strong>Price</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @(Model.Item.Price)$
+                        </div>
+                    </div>
+                    <div class="row mb-3 banner2">
+                        <div class="col-md-4">
+                            <strong>Description</strong>
+                        </div>
+                        <div class="col-md-8">
+                            @Model.Item.Description
+                        </div>
+                    </div>
+                    <a class="btn btn-primary banner" asp-page="/CRUD/Index" roles="button">Go Back</a>
+                    <a type="button" class="btn btn-primary banner" data-bs-toggle="modal" data-bs-target="#EditModal">Get Contact</a>
+
+                    <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="model-header">
+                                    <h5 class="modal-title text-center banner" id="exampleModal">Contact Info</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-3">
+                                        <div class="col-md-4 banner text-center text-white">
+                                            <strong>Name</strong>
+                                        </div>
+                                        <div class="col-md-8 banner2 text-center">
+                                            @Model.UserName
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4 banner text-center text-white">
+                                            <strong>E-mail</strong>
+                                        </div>
+                                        <div class="col-md-8 banner2 text-center">
+                                            @Model.UserEmail
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4 banner text-center text-white">
+                                            <strong>Phone Number</strong>
+                                        </div>
+                                        <div class="col-md-8 banner2 text-center">
+                                            @Model.UserPhoneNumber
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </td>
+                </tr>
+        </tbody>
+    </table>
+</div>

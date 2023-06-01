@@ -1,0 +1,46 @@
+﻿@page
+@model Projekt.Pages.Users.IndexModel
+
+@{
+    
+}
+
+<div class="banner">
+    <h2 class="rounded text-center text-white p-3">List of Users</h2>
+</div>
+<table class="table banner2">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>E-mail</th>
+            <th>Phone Number</th>
+            <th>Observed Category</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model.User)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Surname</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.ObservedCategory</td>
+                @if (user.Role.Equals("admin"))
+                {
+                    <td><span class="badge bg-danger">@user.Role</span></td>
+                }
+                else
+                {
+                    <td><span class="badge bg-primary">@user.Role</span></td>
+                }
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+

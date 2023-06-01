@@ -1,0 +1,70 @@
+﻿@page
+@model Projekt.CRUD.IndexModel
+@{
+
+}
+
+<div class="banner">
+    <h2 class="rounded text-center text-white p-3">List of Items</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="banner">
+                <h4 class="mb-3 text-center">Search</h4>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label text-white">Search</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-lg" asp-for="Search" placeholder="Search by title">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-white">Category</label>
+                        <select class="form-select form-select-lg" asp-for="Category">
+                            <option value="Any">Any</option>
+                            <option value="Books">Books</option>
+                            <option value="Bikes">Bikes</option>
+                            <option value="Cars">Cars</option>
+                            <option value="Phones">Phones</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-light btn-lg">Search</button>
+
+                    </div>
+                    <div class="d-grid">
+                        <a class="btn btn-outline-light btn-lg mt-2" href="/CRUD/Index" role="button">Clear</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <tbody>
+                    @foreach (var item in Model.Item)
+                    {
+                        <tr>
+                            <td style="width:200px">
+                                <img src="data:image/jpg;base64,@item.ImageData" class="img-fluid banner2" alt="Item Image">
+                            </td>
+                            <td class="rounded">
+                                <h3 class="banner2">@item.Name</h3>
+                                <p class="banner2">
+                                    State: @item.State<br>
+                                    Category: @item.Category<br>
+                                </p>
+                                <h4 class="banner2">@(item.Price)$</h4>
+                                <a class="btn btn-primary btn-sm my-2 banner" href="/CRUD/Details?id=@(item.Id)" role="button">Details</a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
